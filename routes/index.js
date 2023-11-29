@@ -38,34 +38,48 @@ router.post('/dashboard', function(req, res, next) {
       req.flash('error',err);
       console.log(err);
     }else{
-      if(rows.length){
+      if(rows.length && rows[0]["nivel"]=='ADMIN'){
         req.session.idu=rows[0]["id"];
         req.session.email=rows[0]["email"];
         req.session.loggedin=true;
         res.redirect('/dashboard');
       }else{
-        req.flash('error','El usuario no existe...');
-        res.redirect('/');
+        if(rows.length && rows[0]["nivel"]=='USER'){
+          req.session.idu=rows[0]["id"];
+          req.session.email=rows[0]["email"];
+          req.session.loggedin=true;
+          res.redirect('/dashboard2');
+        }else{
+          req.flash('error','El usuario no existe...');
+          res.redirect('/');
+        }
       }
     }
   });
 });
 /* GET signup page. */
 router.get('/signup', function(req, res, next) {
-  res.render('signup');
+  res.render('signup',{
+    email:'',
+    password:'',
+    nivel: 'USER'
+  });
 });
 
 /* POST signup page. */
 router.post('/signup', function(req, res, next) {    
   let email = req.body.email;
   let password = req.body.password;
+  let nivel = 'USER';
   let errors = false;
 
   if(email.length === 0) {
       errors = true;
       req.flash('error', "Please enter name");
       res.render('signup', {
-        email: email
+        email: email,
+        password: password,
+        nivel: nivel
       })
   }
 
@@ -74,7 +88,7 @@ router.post('/signup', function(req, res, next) {
       var form_data = {
         email: email,
         password: password,
-        nivel: 'USER'
+        nivel: nivel
       }
       dbConn.query('INSERT INTO usuarios SET ?', form_data, function(err, result) {
           if (err) {
@@ -96,6 +110,12 @@ router.get('/dashboard', function(req, res, next) {
     res.redirect('/login');
   }
   res.render('dashboard');
+});
+router.get('/dashboard2', function(req, res, next) {
+  if(!req.session.loggedin){
+    res.redirect('/login');
+  }
+  res.render('dashboard2');
 });
 
 router.get('/logout',function(req,res){
