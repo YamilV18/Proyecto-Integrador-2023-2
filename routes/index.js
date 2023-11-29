@@ -9,6 +9,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/test', function(req, res, next) {
+  res.render('test');
+});
+
 /* GET aboutus page. */
 router.get('/aboutus', function(req, res, next) {
   res.render('aboutus');
@@ -26,7 +30,7 @@ router.get('/login', function(req, res, next) {
 
 /* POST login page. */
 router.post('/dashboard', function(req, res, next) {
-  email=req.body.username;
+  email=req.body.email;
   password=req.body.password;
   dbConn.query("SELECT * FROM usuarios WHERE email='"+email+"' AND PASSWORD='"+password+"'",function(err,rows){
     console.log(rows);

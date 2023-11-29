@@ -18,6 +18,7 @@ router.get('/add', function(req, res, next) {
     res.render('products/add', {
         nombre: '',
         descripcion: '',
+        foto: '',
         stock: '',
         precio: '',
         categoria: ''
@@ -27,6 +28,7 @@ router.get('/add', function(req, res, next) {
   router.post('/add', function(req, res, next) {    
     let nombre = req.body.nombre;
     let descripcion = req.body.descripcion;
+    let foto = req.body.foto;
     let stock = req.body.stock;
     let precio = req.body.precio;
     let categoria = req.body.categoria;
@@ -38,6 +40,7 @@ router.get('/add', function(req, res, next) {
         res.render('products/add', {
           nombre: nombre,
           descripcion: descripcion,
+          foto: foto,
           stock: stock,
           precio: precio,
           categoria: categoria
@@ -49,6 +52,7 @@ router.get('/add', function(req, res, next) {
         var form_data = {
           nombre: nombre,
           descripcion: descripcion,
+          foto: foto,
           stock: stock,
           precio: precio,
           CATEGORIAS_id: categoria
@@ -79,6 +83,7 @@ router.get('/add', function(req, res, next) {
                 id: rows[0].id,
                 nombre: rows[0].nombre,
                 descripcion: rows[0].descripcion,
+                foto: rows[0].foto,
                 stock: rows[0].stock,
                 precio: rows[0].precio,
                 categoria: rows[0].CATEGORIAS_id
@@ -91,6 +96,7 @@ router.get('/add', function(req, res, next) {
     let id = req.params.id;
     let nombre = req.body.nombre;
     let descripcion = req.body.descripcion;
+    let foto = req.body.foto;
     let stock = req.body.stock;
     let precio = req.body.precio;
     let categoria = req.body.categoria;
@@ -108,6 +114,7 @@ router.get('/add', function(req, res, next) {
         var form_data = {
           nombre: nombre,
           descripcion: descripcion,
+          foto: foto,
           stock: stock,
           precio: precio,
           CATEGORIAS_id: categoria

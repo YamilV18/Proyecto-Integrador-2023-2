@@ -1,135 +1,156 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  </head>
-  <body class="bg-orange-400">
-    <nav x-data="{ open: false }" class="bg-red-800">
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-gray-200">
+    <nav class="bg-teal-500 fixed w-full top-0 z-10">
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
           <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <!-- Mobile menu button-->
-            <button @click="open = ! open" type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+
+            <button type="button"
+              class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-controls="mobile-menu" aria-expanded="false">
               <span class="absolute -inset-0.5"></span>
               <span class="sr-only">Open main menu</span>
               <!--
-                Icon when menu is closed.
-    
-                Menu open: "hidden", Menu closed: "block"
-              -->
-              <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  Icon when menu is closed.
+      
+                  Menu open: "hidden", Menu closed: "block"
+                -->
+              <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
               </svg>
               <!--
-                Icon when menu is open.
-    
-                Menu open: "block", Menu closed: "hidden"
-              -->
-              <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  Icon when menu is open.
+      
+                  Menu open: "block", Menu closed: "hidden"
+                -->
+              <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
           <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div class="flex flex-shrink-0 items-center">
-              <img class="h-8 w-auto" src="https://cdn-icons-png.flaticon.com/512/2590/2590395.png" alt="Your Company">
+              <img class="h-8 w-auto" src="https://cdn-icons-png.flaticon.com/512/2590/2590395.png"
+                alt="Your Company">
             </div>
             <div class="hidden sm:ml-6 sm:block">
               <div class="flex space-x-4">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a href="" class="bg-red-950 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
-                <a href="/login" class="text-gray-300 hover:bg-red-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Catálogo</a>
-                <a href="/login" class="text-gray-300 hover:bg-red-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Mi carrito</a>
-                <a href="/contactus" class="text-gray-300 hover:bg-red-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contáctanos</a>
-                <a href="/aboutus" class="text-gray-300 hover:bg-red-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Ayuda</a>
+                <a href="#" class="bg-teal-800 text-white rounded-md px-3 py-2 text-sm font-medium"
+                  aria-current="page">Inicio</a>
+                <a href="#"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Team</a>
+                <a href="#"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
+                <a href="/aboutus"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Nosotros</a>
+                <!-- Barra de búsqueda -->
+  <div class="relative ml-4">
+    <div class="flex w-full items-stretch">
+      <input type="search" class="relative m-0 block min-w-0 flex-auto rounded-full border border-solid border-neutral-300 bg-white bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-950 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(0,0,0)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" />
+
+      <!-- Icono de búsqueda -->
+      <span class="input-group-text flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700 dark:text-neutral-200" id="basic-addon2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+          <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
+        </svg>
+      </span>
+    </div>
+  </div>
               </div>
             </div>
           </div>
           <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+            <button type="button"
+              class="relative rounded-full bg-teal-200 p-1 text-gray-950 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 mr-2"> 
+              <i class="fa-solid fa-cart-shopping fa-beat" style="color: #000000;"></i>
+            <button type="button"
+              class="relative rounded-full bg-teal-200 p-1 text-gray-950 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 ml-2">
               <span class="absolute -inset-1.5"></span>
               <span class="sr-only">View notifications</span>
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
               </svg>
             </button>
-    
+
             <!-- Profile dropdown -->
             <div x-data="{ open: false }" class="relative ml-3">
               <div>
-                <button @click="open = ! open" type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                <button @click="open = ! open" type="button"
+                  class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                   <span class="absolute -inset-1.5"></span>
                   <span class="sr-only">Open user menu</span>
-                  <img class="h-8 w-8 rounded-full" src="https://adviceco.com.au/wp-content/uploads/sites/683/2019/10/profile-icon-male-user-person-avatar-symbol-vector-20910833.png" alt="">
+                  <img class="h-8 w-8 rounded-full"
+                    src="https://static.vecteezy.com/system/resources/previews/005/005/840/non_2x/user-icon-in-trendy-flat-style-isolated-on-grey-background-user-symbol-for-your-web-site-design-logo-app-ui-illustration-eps10-free-vector.jpg"
+                    alt="">
                 </button>
               </div>
-    
+
               <!--
-                Dropdown menu, show/hide based on menu state.
-    
-                Entering: "transition ease-out duration-100"
-                  From: "transform opacity-0 scale-95"
-                  To: "transform opacity-100 scale-100"
-                Leaving: "transition ease-in duration-75"
-                  From: "transform opacity-100 scale-100"
-                  To: "transform opacity-0 scale-95"
-              -->
-              <div x-show="open" @click.outside="open = false" class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                  Dropdown menu, show/hide based on menu state.
+      
+                  Entering: "transition ease-out duration-100"
+                    From: "transform opacity-0 scale-95"
+                    To: "transform opacity-100 scale-100"
+                  Leaving: "transition ease-in duration-75"
+                    From: "transform opacity-100 scale-100"
+                    To: "transform opacity-0 scale-95"
+                -->
+              <div x-show="open" @click.outside="open = false"
+                class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                 <!-- Active: "bg-gray-100", Not Active: "" -->
-                <a href="/login" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Iniciar sesión</a>
-                <!-- <a href="/login" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Login</a> -->
-                <!-- <a href="/login" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Login</a> -->
+                <a href="/login" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                  id="user-menu-item-0">Login</a>
+                <!-- <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a> -->
+                <!-- <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a> -->
               </div>
             </div>
           </div>
         </div>
       </div>
-    
+
       <!-- Mobile menu, show/hide based on menu state. -->
       <div class="sm:hidden" id="mobile-menu">
-        <div x-show="open" @click.outside="open = false" class="space-y-1 px-2 pb-3 pt-2">
+        <div class="space-y-1 px-2 pb-3 pt-2">
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-          <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
-          <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
-          <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-          <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+          <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+            aria-current="page">Inicio</a>
+          <a href="#"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
+          <a href="#"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+          <a href="#"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Nosotros</a>
         </div>
       </div>
     </nav>
-    <!-- Inicio slider -->
+    <!-- inicio slider -->
     <div
   id="carouselExampleCaptions"
-  class="relative w-9/12 mx-auto"
+  class="relative"
   data-te-carousel-init
-  data-te-ride="carousel">
-  <!--Carousel indicators-->
-  <div
-    class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
-    data-te-carousel-indicators>
-    <button
-      type="button"
-      data-te-target="#carouselExampleCaptions"
-      data-te-slide-to="0"
-      data-te-carousel-active
-      class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-      aria-current="true"
-      aria-label="Slide 1"></button>
-    <button
-      type="button"
-      data-te-target="#carouselExampleCaptions"
-      data-te-slide-to="1"
-      class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-      aria-label="Slide 2"></button>
-    <button
-      type="button"
-      data-te-target="#carouselExampleCaptions"
-      data-te-slide-to="2"
-      class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-      aria-label="Slide 3"></button>
-  </div>
+  data-te-ride="carousel"
+  style="margin-top: 40px;">
+  
 
   <!--Carousel items-->
   <div
@@ -141,14 +162,14 @@
       data-te-carousel-item
       style="backface-visibility: hidden">
       <img
-        src="https://img.chilango.com/2020/11/portada-1280x600.jpg"
+        src="/images/slider1.1.jpg"
         class="block w-full"
         alt="..." />
       <div
         class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
-        <h5 class="text-3xl">Especializados en estilo minimalista, creando diseños propios y únicos</h5>
+        <h5 class="text-xl">First slide label</h5>
         <p>
-          Amplio uso de accesorios vanguardistas
+          Some representative placeholder content for the first slide.
         </p>
       </div>
     </div>
@@ -158,14 +179,14 @@
       data-te-carousel-item
       style="backface-visibility: hidden">
       <img
-        src="https://mueblesyotam.com/wp-content/uploads/slider/cache/8d4101ae29851fdbb8c80ba7872956c0/banner2.jpg"
+        src="/images/slider1.2.jpg"
         class="block w-full"
         alt="..." />
       <div
         class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
-        <h5 class="text-3xl">Muebles de hoy, precios muy asequibles, proyectos personalizados</h5>
+        <h5 class="text-xl">Second slide label</h5>
         <p>
-          ¡Solo aquí te sentirás en casa!
+          Some representative placeholder content for the second slide.
         </p>
       </div>
     </div>
@@ -175,14 +196,14 @@
       data-te-carousel-item
       style="backface-visibility: hidden">
       <img
-        src="https://mtlmuebles.com.uy/wp-content/uploads/2020/05/living2.jpg"
+        src="/images/slider1.3.jpg"
         class="block w-full"
         alt="..." />
       <div
         class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
-        <h5 class="text-3xl">20% de descuento en estantes</h5>
+        <h5 class="text-xl">Third slide label</h5>
         <p>
-          Hasta el 9 de Diciembre
+          Some representative placeholder content for the third slide.
         </p>
       </div>
     </div>
@@ -238,65 +259,860 @@
       >Next</span
     >
   </button>
-    </div>
-    <!-- Fin slider -->
-    <div class="bg-amber-200 pt-1 pb-5">
-      <h1 class="font-bold text-center text-3xl my-6">Los más populares</h1>
-      <div class="container mx-auto grid w-9/12 md:grid-cols-2 xl:grid-cols-5 gap-4">
-        <div class="rounded overflow-hidden shadow-lg">
-          <img class="w-full" src="/images/mueble01.jpg" alt="Sunset in the mountains">
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">Mesas</div>
-            <p class="text-gray-700 text-base">
-            </p>
-          </div>
+  <!--Carousel indicators-->
+<div
+class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
+data-te-carousel-indicators>
+<button
+  type="button"
+  data-te-target="#carouselExampleCaptions"
+  data-te-slide-to="0"
+  data-te-carousel-active
+  class="mx-[3px] box-content h-[12px] w-[12px] rounded-full cursor-pointer border-0 bg-white bg-opacity-50 p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+  aria-current="true"
+  aria-label="Slide 1"></button>
+<button
+  type="button"
+  data-te-target="#carouselExampleCaptions"
+  data-te-slide-to="1"
+  class="mx-[3px] box-content h-[12px] w-[12px] rounded-full cursor-pointer border-0 bg-white bg-opacity-50 p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+  aria-label="Slide 2"></button>
+<button
+  type="button"
+  data-te-target="#carouselExampleCaptions"
+  data-te-slide-to="2"
+  class="mx-[3px] box-content h-[12px] w-[12px] rounded-full cursor-pointer border-0 bg-white bg-opacity-50 p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+  aria-label="Slide 3"></button>
+</div>
+</div>
+<DIV class="text-center">
+  <h1 class="font-bold text-4xl py-4" style="font-family:Verdana, sans-serif;">PRODUCTOS DESTACADOS</h1>
+</DIV>
+
+
+<head>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script>
+      var cont=0;
+  function loopSlider(){
+    var xx= setInterval(function(){
+          switch(cont)
+          {
+          case 0:{
+              $("#slider-1").fadeOut(400);
+              $("#slider-2").delay(400).fadeIn(400);
+              $("#sButton1").removeClass("bg-gray-950");
+              $("#sButton2").addClass("bg-gray-950");
+          cont=1;
+          
+          break;
+          }
+          case 1:
+          {
+          
+              $("#slider-2").fadeOut(400);
+              $("#slider-1").delay(400).fadeIn(400);
+              $("#sButton2").removeClass("bg-gray-950");
+              $("#sButton1").addClass("bg-gray-950");
+             
+          cont=0;
+          
+          break;
+          }
+          
+          
+          }},8000);
+  
+  }
+  
+  function reinitLoop(time){
+  clearInterval(xx);
+  setTimeout(loopSlider(),time);
+  }
+  
+  
+  
+  function sliderButton1(){
+  
+      $("#slider-2").fadeOut(400);
+      $("#slider-1").delay(400).fadeIn(400);
+      $("#sButton2").removeClass("bg-gray-950");
+      $("#sButton1").addClass("bg-gray-950");
+      reinitLoop(4000);
+      cont=0
+      
+      }
+      
+      function sliderButton2(){
+      $("#slider-1").fadeOut(400);
+      $("#slider-2").delay(400).fadeIn(400);
+      $("#sButton1").removeClass("bg-gray-950");
+      $("#sButton2").addClass("bg-gray-950");
+      reinitLoop(4000);
+      cont=1
+      
+      }
+  
+      $(window).ready(function(){
+          $("#slider-2").hide();
+          $("#sButton1").addClass("bg-gray-950");
+          
+  
+          loopSlider();
+       
+          
+      
+      
+      
+      
+      });
+  
+    
+    </script>
+  </head>
+  
+  <body>
+    <div class="sliderAx h-auto">
+        <div id="slider-1" class="container mx-auto">
+          <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill rounded-full" style="background-image: url('/images/slider2.1.png');">
+         <div class="md:w-1/2">
+          <p class="font-bold text-sm uppercase">Services</p>
+          <p class="text-3xl font-bold">Hello world</p>
+          <p class="text-2xl mb-10 leading-none">Carousel with TailwindCSS and jQuery</p>
+          <a href="#" class="bg-gray-500 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact us</a>
+          </div>  
+      </div> <!-- container -->
+        <br>
         </div>
-        <div class="rounded overflow-hidden shadow-lg">
-          <img class="w-full" src="/images/mueble02.webp" alt="Sunset in the mountains">
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">Sofás</div>
-            <p class="text-gray-700 text-base">
-            </p>
-          </div>
+  
+        <div id="slider-2" class="container mx-auto">
+          <div class="bg-cover bg-top  h-auto text-white py-24 px-10 object-fill rounded-full" style="background-image: url('/images/slider2.2.png')">
+         
+    <p class="font-bold text-sm uppercase">Services</p>
+          <p class="text-3xl font-bold">Hello world</p>
+          <p class="text-2xl mb-10 leading-none">Carousel with TailwindCSS and jQuery</p>
+          <a href="#" class="bg-gray-950 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact us</a>
+           
+      </div> <!-- container -->
+        <br>
         </div>
-        <div class="rounded overflow-hidden shadow-lg">
-          <img class="w-full" src="/images/mueble03.jpg" alt="Sunset in the mountains">
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">Muebles de televisor</div>
-            <p class="text-gray-700 text-base">
-            </p>
-          </div>
-        </div>
-        <div class="rounded overflow-hidden shadow-lg">
-          <img class="w-full" src="/images/mueble04.jpg" alt="Sunset in the mountains">
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">Estantes</div>
-            <p class="text-gray-700 text-base">
-            </p>
-          </div>
-        </div>
-        <div class="rounded overflow-hidden shadow-lg">
-          <img class="w-full" src="/images/mueble05.jpg" alt="Sunset in the mountains">
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">Cómodas</div>
-            <p class="text-gray-700 text-base">
-            </p>
-          </div>
-        </div>
-        <div class="rounded overflow-hidden shadow-lg">
-          <img class="w-full" src="/images/mueble06.jpg" alt="Sunset in the mountains">
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">Escritorios</div>
-            <p class="text-gray-700 text-base">
-            </p>
-          </div>
-        </div>
-        <a href="/login" class="text-xl">Ver más</a>
       </div>
+   <div  class="flex justify-between w-12 mx-auto pb-2">
+          <button id="sButton1" onclick="sliderButton1()" class="bg-gray-400 rounded-full w-4 pb-2 " ></button>
+      <button id="sButton2" onclick="sliderButton2() " class="bg-gray-400 rounded-full w-4 p-2"></button>
     </div>
-    <footer class="bg-yellow-900 my-6 py-6">
-      <p class="text-white text-center">UNIX-SYS Copyright ©2023 Teléfono: 954687594</p>
+  
+  </body>
+
+
+    <!-- fin slider -->
+
+    <DIV class="text-center">
+      <h1 class="font-bold text-4xl py-4">LO MAS DESTACADO DE NUESTRAS CATEGORIAS</h1>
+    </DIV>
+
+    <section class="container mx-auto p-10 md:py-12 px-0 md:p-8 md:px-0">
+      <section
+        class="p-5 md:p-0 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 items-start ">
+        <section class="p-5 py-10 bg-purple-50 text-center transform duration-500 hover:-translate-y-2 cursor-pointer">
+          <img src="/images/mueble01.jpg" alt="">
+          <div class="space-x-1 flex justify-center mt-10">
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-gray-300" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+          </div>
+          <h1 class="text-3xl my-5">Silla con cojín de felpa suave</h1>
+          <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, incidunt!</p>
+          <h2 class="font-semibold mb-5">$29.99</h2>
+          <button class="p-2 px-6 bg-purple-500 text-white rounded-md hover:bg-purple-600">Add To Cart</button>
+        </section>
+
+        <section class="p-5 py-10 bg-green-50 text-center transform duration-500 hover:-translate-y-2 cursor-pointer">
+          <img src="/images/mueble02.jpg" alt="">
+          <div class="space-x-1 flex justify-center mt-10">
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-gray-300" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+          </div>
+          <h1 class="text-3xl my-5">Cómoda silla de madera</h1>
+          <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, incidunt!</p>
+          <h2 class="font-semibold mb-5">$39.99</h2>
+          <button class="p-2 px-6 bg-green-500 text-white rounded-md hover:bg-green-600">Add To Cart</button>
+        </section>
+
+        <section class="p-5 py-10 bg-red-50 text-center transform duration-500 hover:-translate-y-2 cursor-pointer">
+          <img src="/images/mueble03.jpg" alt="">
+          <div class="space-x-1 flex justify-center mt-10">
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-gray-300" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+          </div>
+          <h1 class="text-3xl my-5">Carro de madera multiusos</h1>
+          <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, incidunt!</p>
+          <h2 class="font-semibold mb-5">$19.99</h2>
+          <button class="p-2 px-6 bg-red-500 text-white rounded-md hover:bg-red-600">Add To Cart</button>
+        </section>
+
+        <section class="p-5 py-10 bg-blue-50 text-center transform duration-500 hover:-translate-y-2 cursor-pointer">
+          <img src="/images/mueble04.jpg" alt="">
+          <div class="space-x-1 flex justify-center mt-10">
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-gray-300" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+          </div>
+          <h1 class="text-3xl my-5">Herramienta de madera multiusos</h1>
+          <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, incidunt!</p>
+          <h2 class="font-semibold mb-5">$34.99</h2>
+          <button class="p-2 px-6 bg-blue-500 text-white rounded-md hover:bg-blue-600">Add To Cart</button>
+        </section>
+
+        <section class="p-5 py-10 bg-gray-50 text-center transform duration-500 hover:-translate-y-2 cursor-pointer">
+          <img src="/images/mueble05.jpg" alt="">
+          <div class="space-x-1 flex justify-center mt-10">
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-gray-300" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+          </div>
+          <h1 class="text-3xl my-5">Herramienta de madera multiusos</h1>
+          <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, incidunt!</p>
+          <h2 class="font-semibold mb-5">$34.99</h2>
+          <button class="p-2 px-6 bg-gray-500 text-white rounded-md hover:bg-gray-600">Add To Cart</button>
+        </section>
+
+        <section class="p-5 py-10 bg-pink-50 text-center transform duration-500 hover:-translate-y-2 cursor-pointer">
+          <img src="/images/mueble06.jpg" alt="">
+          <div class="space-x-1 flex justify-center mt-10">
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-gray-300" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+          </div>
+          <h1 class="text-3xl my-5">Herramienta de madera multiusos</h1>
+          <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, incidunt!</p>
+          <h2 class="font-semibold mb-5">$34.99</h2>
+          <button class="p-2 px-6 bg-pink-500 text-white rounded-md hover:bg-pink-600">Add To Cart</button>
+        </section>
+
+        <section class="p-5 py-10 bg-purple-50 text-center transform duration-500 hover:-translate-y-2 cursor-pointer">
+          <img src="/images/mueble07.jpg" alt="">
+          <div class="space-x-1 flex justify-center mt-10">
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-gray-300" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+          </div>
+          <h1 class="text-3xl my-5">Herramienta de madera multiusos</h1>
+          <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, incidunt!</p>
+          <h2 class="font-semibold mb-5">$34.99</h2>
+          <button class="p-2 px-6 bg-purple-500 text-white rounded-md hover:bg-purple-600">Add To Cart</button>
+        </section>
+
+        <section class="p-5 py-10 bg-yellow-50 text-center transform duration-500 hover:-translate-y-2 cursor-pointer">
+          <img src="/images/mueble08.jpg" alt="">
+          <div class="space-x-1 flex justify-center mt-10">
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+            <svg class="w-4 h-4 mx-px fill-current text-gray-300" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14">
+              <path
+                d="M6.43 12l-2.36 1.64a1 1 0 0 1-1.53-1.11l.83-2.75a1 1 0 0 0-.35-1.09L.73 6.96a1 1 0 0 1 .59-1.8l2.87-.06a1 1 0 0 0 .92-.67l.95-2.71a1 1 0 0 1 1.88 0l.95 2.71c.13.4.5.66.92.67l2.87.06a1 1 0 0 1 .59 1.8l-2.3 1.73a1 1 0 0 0-.34 1.09l.83 2.75a1 1 0 0 1-1.53 1.1L7.57 12a1 1 0 0 0-1.14 0z">
+              </path>
+            </svg>
+          </div>
+          <h1 class="text-3xl my-5">Herramienta de madera multiusos</h1>
+          <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, incidunt!</p>
+          <h2 class="font-semibold mb-5">$34.99</h2>
+          <button class="p-2 px-6 bg-yellow-500 text-white rounded-md hover:bg-yellow-600">Add To Cart</button>
+        </section>
+      </section>
+    </section>
+
+
+<!-- inicio categorias -->
+<h1 class="text-3xl font-bold px-10"> CATEGORIAS</h1>
+
+<section class=" container mx-auto p-10 md:py-12 px-5  md:p-8 md:px-12">  
+<div class="bg-amber-300 rounded-full text-3xl flex justify-start items-center">
+<h1 class="text-gray-950 p-5">SALA</h1><i class="fa-solid fa-couch" style="color: #000000;"></i>
+</div>
+<div>
+  <!-- component -->
+<section class="py-10 bg-w  z-9 relative">
+  <div class="container mx-auto">
+      <div class="grid grid-cols-1 gap-6   lg:grid-cols-4 ">
+          <a href="#" class=" shadow-2xl relative ">
+              <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                  <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                      <div class="w-full h-full   p-5   relative">
+                          <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                              <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                              <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                          </div>
+                      </div>
+                  </div>
+                  <img src="/images/catsal1.webp" class="w-full z-0  h-full    object-fill example ">
+              </div>
+          </a>
+          <a href="#" class=" shadow-2xl relative ">
+              <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                  <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                      <div class="w-full h-full   p-5   relative">
+                          <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                              <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                              <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                          </div>
+                      </div>
+                  </div>
+                  <img src="/images/catsal2.webp" class="w-full z-0  h-full    object-fill example ">
+              </div>
+          </a>
+          <a href="#" class=" shadow-2xl relative ">
+              <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                  <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                      <div class="w-full h-full   p-5   relative">
+                          <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                              <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                              <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                          </div>
+                      </div>
+                  </div>
+                  <img src="/images/catsal3.webp" class="w-full z-0  h-full    object-fill example ">
+              </div>
+          </a> 
+          <a href="#" class=" shadow-2xl relative ">
+              <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                  <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                      <div class="w-full h-full   p-5   relative">
+                          <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                              <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                              <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                          </div>
+                      </div>
+                  </div>
+                  <img src="/images/catsal4.webp" class="w-full z-0  h-full    object-fill example ">
+              </div>
+          </a>
+
+
+      </div>
+
+</div></section>
+</div>
+
+<div class="bg-amber-300 rounded-full text-3xl flex justify-start items-center">
+  <h1 class="text-gray-950 p-5">COCINA</h1><i class="fa-solid fa-toilet-portable" style="color: #000000;"></i>
+  </div>
+  <div>
+    <!-- component -->
+  <section class="py-10 bg-w  z-9 relative">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 gap-6   lg:grid-cols-4 ">
+            <a href="#" class=" shadow-2xl relative ">
+                <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                    <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                        <div class="w-full h-full   p-5   relative">
+                            <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                                <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                                <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="/images/catcoc1.webp" class="w-full z-0  h-full    object-fill example ">
+                </div>
+            </a>
+            <a href="#" class=" shadow-2xl relative ">
+                <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                    <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                        <div class="w-full h-full   p-5   relative">
+                            <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                                <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                                <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="/images/catcoc2.webp" class="w-full z-0  h-full    object-fill example ">
+                </div>
+            </a>
+            <a href="#" class=" shadow-2xl relative ">
+                <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                    <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                        <div class="w-full h-full   p-5   relative">
+                            <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                                <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                                <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="/images/catcoc3.webp" class="w-full z-0  h-full    object-fill example ">
+                </div>
+            </a> 
+            <a href="#" class=" shadow-2xl relative ">
+                <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                    <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                        <div class="w-full h-full   p-5   relative">
+                            <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                                <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                                <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="/images/catcoc4.webp" class="w-full z-0  h-full    object-fill example ">
+                </div>
+            </a>
+  
+  
+        </div>
+  
+  </div></section>
+  </div>
+
+  <div class="bg-amber-300 rounded-full text-3xl flex justify-start items-center">
+    <h1 class="text-gray-950 p-5">COMEDOR</h1><i class="fa-solid fa-chair" style="color: #000000;"></i>
+    </div>
+    <div>
+      <!-- component -->
+    <section class="py-10 bg-w  z-9 relative">
+      <div class="container mx-auto">
+          <div class="grid grid-cols-1 gap-6   lg:grid-cols-4 ">
+              <a href="#" class=" shadow-2xl relative ">
+                  <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                      <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                          <div class="w-full h-full   p-5   relative">
+                              <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                                  <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                                  <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <img src="/images/catcom1.webp" class="w-full z-0  h-full    object-fill example ">
+                  </div>
+              </a>
+              <a href="#" class=" shadow-2xl relative ">
+                  <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                      <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                          <div class="w-full h-full   p-5   relative">
+                              <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                                  <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                                  <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <img src="/images/catcom2.webp" class="w-full z-0  h-full    object-fill example ">
+                  </div>
+              </a>
+              <a href="#" class=" shadow-2xl relative ">
+                  <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                      <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                          <div class="w-full h-full   p-5   relative">
+                              <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                                  <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                                  <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <img src="/images/catcom3.jpg" class="w-full z-0  h-full    object-fill example ">
+                  </div>
+              </a> 
+              <a href="#" class=" shadow-2xl relative ">
+                  <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                      <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                          <div class="w-full h-full   p-5   relative">
+                              <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                                  <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                                  <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <img src="/images/catcom4.webp" class="w-full z-0  h-full    object-fill example ">
+                  </div>
+              </a>
+    
+    
+          </div>
+    
+    </div></section>
+    </div>
+
+    <div class="bg-amber-300 rounded-full text-3xl flex justify-start items-center">
+      <h1 class="text-gray-950 p-5">DORMITORIO</h1><i class="fa-solid fa-bed" style="color: #000000;"></i>
+      </div>
+      <div>
+        <!-- component -->
+      <section class="py-10 bg-w  z-9 relative">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 gap-6   lg:grid-cols-4 ">
+                <a href="#" class=" shadow-2xl relative ">
+                    <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                        <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                            <div class="w-full h-full   p-5   relative">
+                                <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                                    <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                                    <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="/images/catdom1.webp" class="w-full z-0  h-full    object-fill example ">
+                    </div>
+                </a>
+                <a href="#" class=" shadow-2xl relative ">
+                    <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                        <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                            <div class="w-full h-full   p-5   relative">
+                                <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                                    <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                                    <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="/images/catdom2.webp" class="w-full z-0  h-full    object-fill example ">
+                    </div>
+                </a>
+                <a href="#" class=" shadow-2xl relative ">
+                    <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                        <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                            <div class="w-full h-full   p-5   relative">
+                                <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                                    <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                                    <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="/images/catdom3.webp" class="w-full z-0  h-full    object-fill example ">
+                    </div>
+                </a> 
+                <a href="#" class=" shadow-2xl relative ">
+                    <div class="  h-full relative shadow-2xl shadow-teal-900 overflow-hidden group ">
+                        <div class=" absolute -bottom-10 group-hover:top-0 left-0 w-full h-full group-hover:bg-amber-500 transition-all ease-in-out duration-500  ">
+                            <div class="w-full h-full   p-5   relative">
+                                <div class="absolute bottom-0 group-hover:bottom-24 text-white  text-left   transition-all ease-in-out duration-500 ">
+                                    <h2 class="text-2xl font-bold  text-white mb-0 pb-1">Standard Color</h2>
+                                    <p class="text-lg font-light text-white">Lorem ipsum dolor sit amet, #brands.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="/images/catdom4.webp" class="w-full z-0  h-full    object-fill example ">
+                    </div>
+                </a>
+      
+      
+            </div>
+      
+      </div></section>
+      </div>
+</section>
+
+<!-- fin categorias -->
+    
+<footer class="bg-stone-950 py-6">
+    <!-- Container for demo purpose -->
+    <div class="container py-4 mx-auto px-4 md:px-6 lg:px-12">
+<!-- Social media icons container -->
+<DIV class="text-center">
+  <h3 class="font-bold text-white">SIGUENOS EN NUESTRAS REDES SOCIALES</h3>
+</DIV>
+<ul class="mb-6 flex justify-center items-center">
+  <li class="m-2"><i class="fa-brands fa-facebook fa-3x" style="color: #2963c7;"></i></li>
+  <li class="m-2"><i class="fa-brands fa-instagram fa-3x" style="color: #ff8080;"></i></li>
+  <li class="m-2"><i class="fa-brands fa-youtube fa-3x" style="color: #ff0000;"></i></li>
+  <li class="m-2"><i class="fa-brands fa-twitter fa-3x" style="color: #8ab5ff;"></i></li>
+</ul>
+<DIV class="text-center">
+  <h3 class="font-bold text-white">METODOS DE PAGO</h3>
+</DIV>
+<ul class="mb-6 flex justify-center items-center">
+  </li>
+  <li class="m-2">
+    <i class="fa-brands fa-cc-visa fa-3x" style="color: #ffffff;"></i>
+  </li>
+  <li class="m-2">
+    <i class="fa-brands fa-cc-mastercard fa-3x" style="color: rgb(255, 255, 255);"></i>
+  </li>
+  <li class="m-2">
+    <i class="fa-solid fa-money-bill-wave fa-3x" style="color: #ffffff;"></i>
+  </li>
+</ul>
+</ul>
+
+      <!--Section: Design Block-->
+      <section class=" text-white text-center">
+        <h3 class="font-bold text-3xl mb-12">Contact us</h3>
+        <div class="flex flex-wrap">
+          <div class="mb-6 lg:mb-0 flex-initial shrink w-full lg:w-5/12 lg:pr-3">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1922.4001486754023!2d-70.1453704460046!3d-15.495170430523357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1700423264547!5m2!1ses-419!2spe"
+              class="h-56 md:h-full w-full border-0 rounded-md" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+          <div class="flex-initial shrink w-full lg:w-7/12 lg:pl-3">
+            <form>
+              <div class="flex flex-wrap">
+                <div class="flex-initial shrink w-full md:w-9/12 md:pr-3">
+                  <div class="grid md:grid-cols-2 md:gap-4 mb-6">
+                    <div class="mb-6 md:mb-0">
+                      <input type="text"
+                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        id="exampleX1" placeholder="First name" />
+                    </div>
+                    <div>
+                      <input type="email"
+                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        id="exampleX2" placeholder="Email address" />
+                    </div>
+                  </div>
+                  <div class="mb-6">
+                    <input type="text"
+                      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      id="exampleX3" placeholder="Subject" />
+                  </div>
+                  <div class="mb-6">
+                    <textarea
+                      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      id="exampleX4" rows="4" placeholder="Message"></textarea>
+                  </div>
+                  <div class="text-center md:text-left">
+                    <button type="submit"
+                      class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mb-12 md:mb-0">Send</button>
+                  </div>
+                </div>
+                <div class="flex-initial shrink w-full md:w-3/12 md:pl-3">
+                  <ul>
+                    <li>
+                      <i class="fa-solid fa-location-dot fa-beat fa-2x" style="color: #d10000;"></i>
+                      <p class="mb-6"><small>Jr. Huaynaroque, Juliaca-Puno</small></p>
+                    </li>
+                    <li>
+                      <i class="fas fa-phone fa-2x text-green-500 fa-shake"></i>
+                      <p class="mb-6"><small>+51 934 567 809</small></p>
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-envelope fa-bounce fa-2x" style="color: #b71a1a;"></i>
+                      <p><small>contact@gmail.com</small></p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!--Section: Design Block-->
+    </div>
+    
+    
+      <p class="text-white text-center">Realizado por Sistemas ciclo 3 grupo 1 - 2023</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
-  </body>
+
+  </section>
+
+</body>
+
 </html>
