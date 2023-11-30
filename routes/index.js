@@ -17,6 +17,10 @@ router.get('/test', function(req, res, next) {
 router.get('/aboutus', function(req, res, next) {
   res.render('aboutus');
 });
+/* GET aboutus page. */
+router.get('/ayuda', function(req, res, next) {
+  res.render('ayuda');
+});
 
 /* GET contactus page. */
 router.get('/contactus', function(req, res, next) {
