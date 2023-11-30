@@ -6,7 +6,21 @@ var loggedin=false;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  dbConn.query('SELECT * FROM productos ORDER BY id desc',function(err,rows)     {
+    if(err) {
+        req.flash('error', err);
+        res.render('index', {data:'', dataCategories:''});
+    } else {
+      dbConn.query('SELECT * FROM categorias ORDER BY id asc',function(errcat,rowsCategories){
+        if(errcat){
+          req.flash('error', errcat);
+          res.render('index', {data:rows, dataCategories:''});
+        }else{
+          res.render('index', {data:rows, dataCategories:rowsCategories});
+        }
+      });
+    }
+  })
 });
 
 router.get('/test', function(req, res, next) {
